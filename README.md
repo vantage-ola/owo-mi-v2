@@ -1,2 +1,2 @@
 # owo-mi-v2
-newer syntax for owomi
+migrate to move 2024 for owomi
