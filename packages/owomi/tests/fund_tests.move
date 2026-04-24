@@ -8,7 +8,6 @@ use sui::test_scenario;
 use std::unit_test;
 
 use owomi::fund;
-use owomi::fund::EUnknownAuthorizedCap;
 use owomi::fund::EInsufficientFunds;
 use owomi::fund::EUnknownCoinType;
 use owomi::fund::EFundCapMismatch;
