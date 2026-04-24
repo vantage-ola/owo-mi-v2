@@ -83,7 +83,8 @@ public fun deposit<T>(fund: &mut Fund, coin: Coin<T>) {
 public fun withdraw<T>(fund: &mut Fund, cap: &FundCap, amount: u64, ctx: &mut TxContext): Coin<T> {
     // Verify the cap belongs to this fund
     assert!(fund.id.to_inner() == cap.fund, EFundCapMismatch);
-    
+    assert!(fund.authorized_caps.contains(cap.id.as_inner()), EFundCapMismatch);
+        
     // Get the coin type identifier
     let coin_type = type_name::with_defining_ids<T>().into_string().into_bytes();
 
@@ -214,4 +215,23 @@ public fun delete_cap(self: &mut Fund, cap: FundCap) {
     // Unpack and delete the cap object
     let FundCap {id, fund: _ } = cap;
     id.delete(); 
+}
+
+// ===== Test Helpers =====
+
+#[test_only]
+public fun authorized_caps_length(self: &Fund): u64 {
+    self.authorized_caps.length()
+}
+
+#[test_only]
+/// Returns the ID of a FundCap (used for testing authorization lists)
+public fun cap_id(cap: &FundCap): ID {
+    cap.id.to_inner()
+}
+
+#[test_only]
+/// Returns the Fund ID that a FundCap points to
+public fun fund_id(cap: &FundCap): ID {
+    cap.fund
 }
