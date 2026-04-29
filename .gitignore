@@ -2,3 +2,6 @@ build/*
 .trace
 .coverage*
 .DS_Store
+.venv/
+
+explain.md

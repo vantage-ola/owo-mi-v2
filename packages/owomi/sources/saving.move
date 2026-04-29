@@ -322,3 +322,25 @@ fun new_saving_cap<T>(saving: &Saving<T>, ctx: &mut TxContext): SavingCap {
         saving: saving.id.to_inner()
     }
 }
+
+// ===== Test Helpers =====
+
+#[test_only]
+public fun authorized_caps_length<T>(self: &Saving<T>): u64 {
+    self.authorized_caps.length()
+}
+
+#[test_only]
+public fun cap_id(cap: &SavingCap): ID {
+    cap.id.to_inner()
+}
+
+#[test_only]
+public fun saving_id(cap: &SavingCap): ID {
+    cap.saving
+}
+
+#[test_only]
+public fun balance_value<T>(self: &Saving<T>): u64 {
+    self.balance.value()
+}

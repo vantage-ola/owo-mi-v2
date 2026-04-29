@@ -255,11 +255,7 @@ fun test_fund_withdraw_unknown_coin_type() {
 /// Test: Revoke a FundCap
 #[test]
 fun test_fund_revoke_cap() {
-    // TODO: Implement test
-    // - Create Fund and authorized cap
-    // - Revoke the cap
-    // - Verify cap is removed from authorized_caps
-    // - Verify cap no longer works for withdrawal
+
 
     let ctx = &mut sui::tx_context::dummy();
     let mut fund = fund::new(ctx);
@@ -278,11 +274,7 @@ fun test_fund_revoke_cap() {
 /// Test: Delete a FundCap
 #[test]
 fun test_fund_delete_cap() {
-    // TODO: Implement test
-    // - Create Fund and authorized cap
-    // - Delete the cap
-    // - Verify cap is removed from authorized_caps
-    // - Verify cap object is destroyed
+
     let ctx = &mut sui::tx_context::dummy();
     let mut fund = fund::new(ctx);
 
@@ -323,10 +315,6 @@ fun test_fund_only_owner_can_create_cap() {
 /// Test: Read balance function
 #[test]
 fun test_fund_balance() {
-    // TODO: Implement test
-    // - Create Fund and deposit coins
-    // - Call balance<T>() function
-    // - Verify it returns correct amount
     let ctx = &mut sui::tx_context::dummy();
     let mut fund = fund::new(ctx);
 
