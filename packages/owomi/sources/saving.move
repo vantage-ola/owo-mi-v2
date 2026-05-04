@@ -162,7 +162,6 @@ public fun delete_cap<T>(self: &mut Saving<T>, cap: SavingCap) {
 }
 
 /// Shares the Saving object, making it accessible to all users
-#[allow(lint(share_owned))]
 public fun share<T>(self: Saving<T>) {
     transfer::share_object(self)
 }

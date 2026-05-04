@@ -130,7 +130,6 @@ fun new_cap(fund: &Fund, ctx: &mut TxContext): FundCap {
 /// 
 /// Required for other users to interact with the Fund.
 /// Uses #[allow(lint(share_owned))] to suppress the ownership warning.
-#[allow(lint(share_owned))]
 public fun share(self: Fund) {
     transfer::share_object(self)
 }
